@@ -1,0 +1,14 @@
+#basic OS setting
+FROM ubuntu:16.04
+MAINTAINER hanson
+RUN apt-get update
+
+#tool install
+RUN apt-get -y install iputils-ping
+
+#Apache2 service install and setting
+RUN apt-get -y install apache2
+EXPOSE 80
+
+#Run apache2
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
